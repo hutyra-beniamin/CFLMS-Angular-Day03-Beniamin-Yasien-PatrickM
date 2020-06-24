@@ -27,7 +27,7 @@ export class CartComponent implements OnInit {
 
   onDeleteButton(index){
     this.cartService.deleteItem(index)
-    this.fullPrice = this.cartService.calculatePrice();
+    this.fullPrice = this.cartService.calculatePrice(); 
   }
 
   onSubmit(customerData) {
@@ -36,6 +36,7 @@ export class CartComponent implements OnInit {
  
     this.items = this.cartService.clearCart();
     this.checkoutForm.reset();
+    this.fullPrice = this.cartService.calculatePrice();
   }
 }
 

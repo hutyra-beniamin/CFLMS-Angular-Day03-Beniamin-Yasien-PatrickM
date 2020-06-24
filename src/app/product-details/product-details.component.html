@@ -7,6 +7,6 @@
  <p>{{ product.description }}</p>
 
  <button class="btn btn-primary"(click)="addToCart(product)">Buy</button>
- <div *ngIf="purchased">Purchased! {{amount}} pieces!</div>
+ <div *ngIf="purchased">Purchased! {{amount}} <span *ngIf="amount >1; else elseBlock ">pieces!</span> <ng-template #elseBlock><span>piece!</span></ng-template></div>
 
 </div>

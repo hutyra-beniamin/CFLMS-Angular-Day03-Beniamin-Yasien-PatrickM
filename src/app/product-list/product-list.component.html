@@ -1,0 +1,17 @@
+<div class="container mt-5">
+	<div class="row">
+		<h2>Our Products</h2>
+		<div class="col-12 mt-2" *ngFor="let product of myProducts; index as productId">
+
+			<a [routerLink] ="['/products', productId]" title="{{product.name}}, {{product.description}}"><h4>{{product.name}}</h4></a>
+
+			<div *ngIf="product.description">
+				<h6 class="ml-3">Description: {{product.description}}</h6>
+			</div>
+
+			<div *ngIf="product.price">
+				<h5 class="ml-5 text-danger"><b>€ {{product.price}}</b></h5>
+			</div>				
+		</div>
+	</div>
+</div>

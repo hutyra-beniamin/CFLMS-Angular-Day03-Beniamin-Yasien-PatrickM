@@ -10,11 +10,13 @@ import { CartService } from '../cart.service';
 })
 export class ProductDetailsComponent implements OnInit {
   product;
+  purchased = false;
 
   constructor(private route: ActivatedRoute, private cartService: CartService) {}
 
   addToCart(product) {
-    window.alert('Your product has been added to the cart!');
+    //window.alert('Your product has been added to the cart!');
+    this.purchased = true;
     this.cartService.addToCart(product);
   }
 

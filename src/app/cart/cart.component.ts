@@ -10,7 +10,8 @@ import { FormBuilder } from '@angular/forms';
 export class CartComponent implements OnInit {
   items;
   checkoutForm;
-
+  fullPrice;
+   
   constructor(private cartService: CartService, private formBuilder: FormBuilder) {
     this.checkoutForm = this.formBuilder.group({
       name: '',
@@ -20,6 +21,13 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.items = this.cartService.getItems();
+    this.fullPrice = this.cartService.calculatePrice();
+  }
+
+
+  onDeleteButton(index){
+    this.cartService.deleteItem(index)
+    this.fullPrice = this.cartService.calculatePrice();
   }
 
   onSubmit(customerData) {
@@ -29,6 +37,6 @@ export class CartComponent implements OnInit {
     this.items = this.cartService.clearCart();
     this.checkoutForm.reset();
   }
- 
-
 }
+
+

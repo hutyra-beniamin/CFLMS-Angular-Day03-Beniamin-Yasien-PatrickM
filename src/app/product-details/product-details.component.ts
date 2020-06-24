@@ -10,13 +10,15 @@ import { CartService } from '../cart.service';
 })
 export class ProductDetailsComponent implements OnInit {
   product;
-  purchased = false;
+  purchased: boolean = false;
+  amount: number = 0;
 
   constructor(private route: ActivatedRoute, private cartService: CartService) {}
 
   addToCart(product) {
     //window.alert('Your product has been added to the cart!');
     this.purchased = true;
+    this.amount++;
     this.cartService.addToCart(product);
   }
 
